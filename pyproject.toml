@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "injectionshield"
+version = "0.1.0"
+description = "Rule-based prompt injection detection for LLM agents. Zero dependencies, no ML, no network."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "LaVon Rutledge" }
+]
+keywords = [
+    "llm", "ai-agents", "prompt-injection", "security", "guardrails",
+    "safety", "jailbreak", "llm-security"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = []  # Zero external dependencies — pure Python stdlib only
+
+[project.optional-dependencies]
+dev = ["pytest", "hatch"]
+
+[project.urls]
+Homepage = "https://github.com/aenealabs/injectionshield"
+Repository = "https://github.com/aenealabs/injectionshield"
+Issues = "https://github.com/aenealabs/injectionshield/issues"
+Changelog = "https://github.com/aenealabs/injectionshield/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/injectionshield"]
+
+[tool.hatch.envs.default]
+dependencies = ["pytest"]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest tests/ -v"
